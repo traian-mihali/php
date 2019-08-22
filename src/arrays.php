@@ -77,3 +77,12 @@ print_r($diff); // Array ( [0] => 1 [1] => 2 [2] => 3 )
 
 // array_diff_assoc() - Compare arrays, and returns the differences (compare keys and values)
 // array_diff_key() - Compare arrays, and returns the differences (compare keys only)
+
+echo "</br></br>";
+
+print_r(array_map((function ($v) {
+    return $v*$v;
+}), $countValues)); // Array ( [0] => 1 [1] => 1 [2] => 4 [3] => 9 [4] => 9 [5] => 9 )
+
+echo "</br></br>";
+print_r(array_merge($nums, $digits)); // Array ( [0] => first [1] => second [2] => third [3] => 1 [4] => 2 [5] => 3 )
