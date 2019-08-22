@@ -1,9 +1,9 @@
 <div class="jumbotron">
     <?php
         echo '<p>HTTP_HOST: '.$_SERVER['HTTP_HOST']."</p>";
-        echo '<p>HTTP_CONNECTION: '.$_SERVER['HTTP_CONNECTION']."</p>"; 
+        echo '<p>HTTP_CONNECTION: '.$_SERVER['HTTP_CONNECTION']."</p>";
         echo '<p>HTTP_USER_AGENT: '.$_SERVER['HTTP_USER_AGENT']."</p>";
-        echo '<p>SERVER_SOFTWARE: '.$_SERVER['SERVER_SOFTWARE']."</p>";	
+        echo '<p>SERVER_SOFTWARE: '.$_SERVER['SERVER_SOFTWARE']."</p>";
         echo '<p>SERVER_NAME: '.$_SERVER['SERVER_NAME']."</p>";
         echo '<p>SERVER_PORT: '.$_SERVER['SERVER_PORT']."</p>";
         echo '<p>DOCUMENT_ROOT: '.$_SERVER['DOCUMENT_ROOT']."</p>";
