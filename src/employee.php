@@ -4,13 +4,25 @@ class Employee
 {
     protected $connection = null;
 
-    public function __construct($dbname, $username, $password)
+    private $dbname;
+    private $username;
+    private $password;
+    private $host;
+
+    public function __construct($host, $dbname, $username, $password)
     {
         $this->$dbname   = $dbname;
         $this->$username = $username;
         $this->$password = $password;
+        $this->$host = $host;
 
-        $this->connection = new \PDO("mysql:host=127.0.0.1;dbname=$dbname", $username, $password);
+        $options = [
+            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+            \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
+            \PDO::ATTR_EMULATE_PREPARES => false
+        ];
+
+        $this->connection = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
     }
 
     public function load($id)
