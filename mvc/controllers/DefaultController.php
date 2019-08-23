@@ -15,4 +15,13 @@ class DefaultController
     {
         include 'views/default.php';
     }
+
+    public function execute($action)
+    {
+        if ($action) {
+            $this->run($action);
+        } else {
+            $this->default();
+        }
+    }
 }

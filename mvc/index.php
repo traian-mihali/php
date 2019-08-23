@@ -22,10 +22,8 @@
                 $controller = new DefaultController();
         }
 
-        if ($action) {
-            $controller->run($action);
-        } else {
-            $controller->default();
-        } ?>
+        $controller->execute($action);
+        
+    ?>
   </body>
 </html>
