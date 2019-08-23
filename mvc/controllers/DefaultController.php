@@ -2,10 +2,10 @@
 
 class DefaultController
 {
-    public function run($action="default")
+    public function run($action)
     {
         if (!method_exists($this, $action)) {
-            $action = "default";
+            $action = "unknown";
         }
 
         return $this->$action();
@@ -13,6 +13,6 @@ class DefaultController
 
     public function default()
     {
-        include 'views/unknown-view.php';
+        include 'views/default.php';
     }
 }

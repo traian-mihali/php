@@ -1,49 +1,53 @@
 <html>
+  <head>
+    <style>
+      body {
+        padding: 30px;
+      }
 
-<head>
-</head>
+      h1 {
+        color: rgb(64, 64, 192);
+      }
 
-<body>
+      button {
+        background-color: rgb(95, 95, 214);
+        padding: 10px 16px;
+      }
+
+      button > a {
+        text-decoration-line: none;
+        color: white;
+        font-size: 1rem;
+      }
+
+      button:hover {
+        background-color: rgb(92, 92, 126);
+      }
+    </style>
+  </head>
+
+  <body>
     <?php
 
-        include_once 'controllers/HelloController.php';
-        include_once 'controllers/GoodbyeController.php';
-        include_once 'controllers/RudeController.php';
+        include_once 'controllers/GreetingsController.php';
         include_once 'controllers/DefaultController.php';
+        include_once 'models/GreetingsModel.php';
 
-        echo
-        '<h1>Home Page</h1>
-        <ul>
-            <li>
-                <a href="index.php?m=greetings&a=hello">Say Hello</a>
-            </li>
-            <li>
-                <a href="index.php?m=greetings&a=goodbye">Say Goodbye</a>
-            </li>
-            <li>
-                <a href="index.php?m=greetings&a=rude">Be Rude</a>
-            </li>
-        </ul>
-        ';
+        $action = isset($_GET['a']) ? $_GET['a'] : '';
+        $model = isset($_GET['m']) ? $_GET['m'] : '';
 
-        $action = isset($_GET['a']) ? $_GET['a'] : 'default';
-
-        switch ($action) {
-            case 'hello':
-                $controller = new HelloController();
-                break;
-            case 'goodbye':
-                $controller = new GoodbyeController();
-                break;
-            case 'rude':
-                $controller = new RudeController();
+        switch ($model) {
+            case 'greetings':
+                $controller = new GreetingsController();
                 break;
             default:
                 $controller = new DefaultController();
         }
 
-        $controller->run($action);
-    ?>
-</body>
-
+        if ($action) {
+            $controller->run($action);
+        } else {
+            $controller->default();
+        } ?>
+  </body>
 </html>
